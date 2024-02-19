@@ -27,6 +27,7 @@ export default class HomeScreen extends React.Component {
                 const obj = JSON.parse(objectStr);
                 obj.key = id;
                 objects.push(obj);
+                console.log(obj);
             });
             this.setState({ data: objects })
         } catch (error) {
@@ -49,7 +50,7 @@ export default class HomeScreen extends React.Component {
     renderIcon(item) {
         switch (item.type) {
             case 'link':
-                return <AntDesign name="link1" size={24} color='#2980b9' />
+                return <FontAwesome name="link" size={24} color='#2980b9' />
             case 'location':
                 return <MaterialIcons name='location-on' size={24} color='#2980b9' />;
             case 'phone':
@@ -66,6 +67,11 @@ export default class HomeScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+
+                <TouchableOpacity onPress={() => this.getAllData()} style={styles.refreshButton}>
+                    <MaterialIcons name="refresh" size={24} color="#2980b9" />
+                </TouchableOpacity>
+
                 <FlatList
                     data={this.state.data}
                     keyExtractor={(item) => item.key}

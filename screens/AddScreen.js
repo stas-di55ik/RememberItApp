@@ -23,7 +23,7 @@ export default class HomeScreen extends React.Component {
         const dataTxt = this.state.dataTxt;
         const type = this.state.type;
 
-        if (name !== '' || dataTxt !== '' || type !== '') {
+        if (name !== '' && dataTxt !== '' && type !== '') {
             const data = { name, type, dataTxt };
             try {
                 await AsyncStorage.setItem(Date.now().toString(), JSON.stringify(data));
@@ -64,6 +64,7 @@ export default class HomeScreen extends React.Component {
                     selectedValue={this.state.type}
                     onValueChange={this.onTypeChanged.bind(this)}
                 >
+                    <Picker.Item label="..." value="" />
                     <Picker.Item label="Link" value="link" />
                     <Picker.Item label="Location" value="location" />
                     <Picker.Item label="Phone" value="phone" />
