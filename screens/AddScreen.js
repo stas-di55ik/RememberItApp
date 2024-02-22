@@ -4,7 +4,7 @@ import { TextInput, Button } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default class HomeScreen extends React.Component {
+export default class AddScreen extends React.Component {
 
     state = {
         name: '',
